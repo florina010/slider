@@ -15,7 +15,7 @@
           $(this).css({"background-color" : "#000", "transitionDuration" : options["transitionTime"], "animation-iteration-count" : "infinite"});
   }*/
 
-  var slides, length;
+  var slides , length, id;
 
   function changeSlides (id) {
     var nextId, previousId;
@@ -23,14 +23,34 @@
     previousId = id === 0 ? length - 1 : id - 1;
     for (var i = 0; i < length; i++) {
       if (i === id) {
-        images[nextId].changeClass(images[nextId]['alt'], 'right');
-        images[previousId].changeClass(images[previousId]['alt'], 'left');
-        images[i].changeClass(images[i]['alt'], 'active');
+        $(slides[nextId]).children().removeClass($(slides[nextId]).children().attr("class")).addClass('right');
+        $(slides[previousId]).children().removeClass($(slides[previousId]).children().attr("class")).addClass('left');
+        $(slides[i]).children().removeClass($(slides[i]).children().attr("class")).addClass('active');
+/*
+        $(slides[nextId]).switchClass($(slides[nextId]).attr("class"), 'right');
+        $(slides[previousId]).switchClass($(slides[previousId]).attr("class"), 'right');
+        $(slides[i]).switchClass($(slides[i]).attr("class"), 'active');
+*/
       }
       if (i != nextId && i != previousId && i != id)
-        images[i].changeClass(images[i]['alt'], "inactive");
+          $(slides[i]).children().removeClass($(slides[i]).children().attr("class")).addClass('inactive');
       }
     }
+
+
+      //  setInterval( function () {
+      //    id++;
+      //    if (id >= length)
+      //      id = 0 ;
+      //    changeSlides(id);
+      //    var divs = $("div:first div span");
+      //    for(var i = 0; i < length; i++)
+      //      if(divs[i].id != id)
+      //        divs[i].style.backgroundColor = "#fff";
+      //      else
+      //        divs[i].style.backgroundColor = "#000";
+       //
+      //  },2000);
 
   (function generateButtons (sliderObj) {
     var span= $("<span></span>");
@@ -50,7 +70,7 @@
         span.css("background-color", "#fff");
       pager.append(divSpan);
 
-      var id;
+
       span.each( function () {
         $(this).click( function () {
           $(this).css("background-color", "#000");

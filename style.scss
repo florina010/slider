@@ -557,9 +557,12 @@
 
 
   body{
+    & > div:first-of-type {
+      margin-bottom: 50px;
+    }
      background-image:url(https://www.toptal.com/designers/subtlepatterns/patterns/pink%20dust.png);
     .pager{
-      // margin-bottom: 50px;
+       margin-bottom: 50px;
       margin-left: 700px;
         div{
           margin-left: 50px;
@@ -782,11 +785,15 @@
 .ui-dialog-titlebar {
     display: none;
 }
-
+img{
+  width: 300px;
+  height: 150px;
+}
 .inactive{
   display: none;
 }
 .left{
+
   left: 95px;
   width: 20%;
   height: 200px;
@@ -796,6 +803,7 @@
 }
 
 .right{
+
   left: 1445px;
   width: 20%;
   height: 200px;
@@ -804,6 +812,7 @@
   animation: animate 5s;
 }
 .active{
+
   margin-left: 534px;
   margin-right: 100px;
   position: relative;
