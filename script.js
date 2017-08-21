@@ -6,7 +6,7 @@ $(document).ready( function () {
         displayPrevNext : "true",
         infinitTransition : "false",
         slideEl: "div",
-        vertical: "true"
+        vertical: "false"
       });
       $('#listaTa').slider({
         animate : "false",
